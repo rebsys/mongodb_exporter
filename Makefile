@@ -1,5 +1,6 @@
 package = github.com/dcu/mongodb_exporter
 TAG := $(shell git tag | sort -r | head -n 1)
+export PATH := ~/bin:~/node_modules/.bin:${HOME}/go/bin:${PATH}
 
 test:
 	go test github.com/dcu/mongodb_exporter/collector -cover -coverprofile=collector_coverage.out -short
@@ -12,6 +13,7 @@ deps:
 	glide install
 
 build: deps
+	go mod vendor
 	go build mongodb_exporter.go
 
 release: deps

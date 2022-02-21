@@ -148,22 +148,22 @@ func startWebServer() {
 
 func registerCollector() {
 	mongodbCollector := collector.NewMongodbCollector(collector.MongodbCollectorOpts{
-		URI:                      *mongodbURIFlag,
-		TLSCertificateFile:       *mongodbTLSCert,
-		TLSPrivateKeyFile:        *mongodbTLSPrivateKey,
-		TLSCaFile:                *mongodbTLSCa,
-		TLSHostnameValidation:    !(*mongodbTLSDisableHostnameValidation),
-		CollectOplog:             *mongodbCollectOplog,
-		TailOplog:                *mongodbCollectOplogTail,
-		CollectReplSet:           *mongodbCollectReplSet,
-		CollectTopMetrics:        *mongodbCollectTopMetrics,
-		CollectDatabaseMetrics:   *mongodbCollectDatabaseMetrics,
-		CollectCollectionMetrics: *mongodbCollectCollectionMetrics,
-		CollectProfileMetrics:    *mongodbCollectProfileMetrics,
-		CollectConnPoolStats:     *mongodbCollectConnPoolStats,
-		UserName:                 *mongodbUserName,
-		AuthMechanism:            *mongodbAuthMechanism,
-		SocketTimeout:            *mongodbSocketTimeout,
+		URI:                   *mongodbURIFlag,
+		TLSCertificateFile:    *mongodbTLSCert,
+		TLSPrivateKeyFile:     *mongodbTLSPrivateKey,
+		TLSCaFile:             *mongodbTLSCa,
+		TLSHostnameValidation: !(*mongodbTLSDisableHostnameValidation),
+		CollectOplog:          *mongodbCollectOplog,
+		//TailOplog:                *mongodbCollectOplogTail,
+		CollectReplSet: *mongodbCollectReplSet,
+		//CollectTopMetrics:        *mongodbCollectTopMetrics,
+		CollectDatabaseMetrics: *mongodbCollectDatabaseMetrics,
+		//CollectCollectionMetrics: *mongodbCollectCollectionMetrics,
+		//CollectProfileMetrics:    *mongodbCollectProfileMetrics,
+		//CollectConnPoolStats:     *mongodbCollectConnPoolStats,
+		//UserName:                 *mongodbUserName,
+		//AuthMechanism:            *mongodbAuthMechanism,
+		//SocketTimeout:            *mongodbSocketTimeout,
 	})
 	prometheus.MustRegister(mongodbCollector)
 }
